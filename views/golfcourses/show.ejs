@@ -33,7 +33,7 @@
             <ul class="list-group list-group-flush">
                 <li class="list-group-item text-muted"><%= golfcourse.location%></li>
                 <li class="list-group-item">Submitted by <%= golfcourse.author.username%></li>
-                <li class="list-group-item">$<%= golfcourse.price%>/per 9 holes</li>
+                <li class="list-group-item">$<%= golfcourse.price%> per 18 holes</li>
             </ul>
             <% if(currentUser && golfcourse.author.equals(currentUser._id)) {%> 
             <div class="card-body">
