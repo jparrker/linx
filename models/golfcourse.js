@@ -48,7 +48,7 @@ const CourseSchema = new Schema({
 
 CourseSchema.virtual('properties.popUpText').get(function() {
   return `<a href="/courses/${this._id}">${this.title} </a>
-  <p>${this.description.substring(0, 20)}...</p>`
+  <p>${this.description.substring(0, 40)}...</p>`
 })
 
 CourseSchema.post('findOneAndDelete', async function(doc) {
