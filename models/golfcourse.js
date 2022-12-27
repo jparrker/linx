@@ -47,7 +47,7 @@ const CourseSchema = new Schema({
 }, opts)
 
 CourseSchema.virtual('properties.popUpText').get(function() {
-  return `<a href="/courses/${this._id}">${this.title} </a>
+  return `<a href="/golfcourses/${this._id}">${this.title} </a>
   <p>${this.description.substring(0, 40)}...</p>`
 })
 
