@@ -27,11 +27,11 @@ clusterRadius: 50 // Radius of each cluster when clustering points (defaults to 
 });
  
 map.addLayer({
-id: 'clusters',
-type: 'circle',
-source: 'golfcourses',
-filter: ['has', 'point_count'],
-paint: {
+  id: 'clusters',
+  type: 'circle',
+  source: 'golfcourses',
+  filter: ['has', 'point_count'],
+  paint: {
 // Use step expressions (https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-step)
 // with three steps to implement three types of circles:
 //   * Blue, 20px circles when point count is less than 100
@@ -59,34 +59,34 @@ paint: {
 });
  
 map.addLayer({
-id: 'cluster-count',
-type: 'symbol',
-source: 'golfcourses',
-filter: ['has', 'point_count'],
-layout: {
-'text-field': ['get', 'point_count_abbreviated'],
-'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
-'text-size': 12
+  id: 'cluster-count',
+  type: 'symbol',
+  source: 'golfcourses',
+  filter: ['has', 'point_count'],
+  layout: {
+  'text-field': ['get', 'point_count_abbreviated'],
+  'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
+  'text-size': 12
 }
 });
  
 map.addLayer({
-id: 'unclustered-point',
-type: 'circle',
-source: 'golfcourse',
-filter: ['!', ['has', 'point_count']],
-paint: {
-'circle-color': '#11b4da',
-'circle-radius': 4,
-'circle-stroke-width': 1,
-'circle-stroke-color': '#fff'
+  id: 'unclustered-point',
+  type: 'circle',
+  source: 'golfcourses',
+  filter: ['!', ['has', 'point_count']],
+  paint: {
+  'circle-color': '#11b4da',
+  'circle-radius': 4,
+  'circle-stroke-width': 1,
+  'circle-stroke-color': '#fff'
 }
 });
  
 // inspect a cluster on click
 map.on('click', 'clusters', (e) => {
-const features = map.queryRenderedFeatures(e.point, {
-layers: ['clusters']
+  const features = map.queryRenderedFeatures(e.point, {
+  layers: ['clusters']
 });
 const clusterId = features[0].properties.cluster_id;
 map.getSource('golfcourses').getClusterExpansionZoom(
