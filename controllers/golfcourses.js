@@ -74,7 +74,7 @@ module.exports.updateGolfcourse = async (req, res) => {
     filename: file.filename,
   }));
   golfcourse.image.push(...imgs);
-  await campground.save();
+  await golfcourse.save();
   if (req.body.deleteImages) {
     for (let filename of req.body.deleteImages) {
       await cloudinary.uploader.destroy(filename);
